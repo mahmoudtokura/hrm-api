@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from resources.employees import Employees
+from resources.employees import Employees, Employee
 from ma import ma
 from flask_cors import CORS
 
@@ -11,6 +11,7 @@ CORS(app)
 
 
 api.add_resource(Employees, '/')
+api.add_resource(Employee, "/employee")
 
 
 if __name__ == '__main__':
