@@ -2,7 +2,7 @@ import uuid
 from flask import request
 from flask_restful import Resource
 from db import db
-from schemas.users import EmployeeSchema
+from schemas.employee import EmployeeSchema
 
 employee_schema = EmployeeSchema()
 employees_schema = EmployeeSchema(many=True)
@@ -24,5 +24,4 @@ class Employees(Resource):
         employees = db['employees']
 
         employee_list = employees.find({})
-        print(type(employee_list))
         return employees_schema.dump(employee_list), 200
